@@ -14,6 +14,9 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
+	
+	console.log(req);
+	
   var speech =
     req.body.result &&
     req.body.result.parameters &&
@@ -21,8 +24,8 @@ restService.post("/echo", function(req, res) {
       ? req.body.result.parameters.echoText
       : "Seems like some problem. Speak again.";
   return res.json({
-    speech: speech,
-    displayText: speech,
+    speech: 'hi i am from webhook',
+    displayText: 'hi i am from webhook',
     source: "webhook-echo-sample"
   });
 });
