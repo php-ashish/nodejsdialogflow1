@@ -15,9 +15,12 @@ restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
 	
-	console.log(req.body);
-	console.log(req.body.result);
-	console.log(req.body.result.parameters.echoText);
+	var jsonString = JSON.stringify(req);
+    //  console.log(jsonString);
+	
+	//console.log(json.stringigy(req.body));
+	//console.log(req.body.result);
+	//console.log(req.body.result.parameters.echoText);
   var speech =
     req.body.result &&
     req.body.result.parameters &&
@@ -25,8 +28,8 @@ restService.post("/echo", function(req, res) {
       ? req.body.result.parameters.echoText
       : "Seems like some problem. Speak again.";
   return res.json({
-    speech: 'hi i am from webhook1',
-    displayText: 'hi i am from webhook1',
+    speech: jsonString,
+    displayText: jsonString,
     source: "webhook-echo-sample"
   });
 });
