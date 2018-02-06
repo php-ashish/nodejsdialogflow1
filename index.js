@@ -15,7 +15,7 @@ restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
 	
-	var jsonString = JSON.stringify(req);
+	var jsonString = JSON.stringify( req );
      console.log(jsonString);
 	
 	//console.log(json.stringigy(req.body));
@@ -27,11 +27,11 @@ restService.post("/echo", function(req, res) {
     req.body.result.parameters.echoText
       ? req.body.result.parameters.echoText
       : "Seems like some problem. Speak again.";
-  //return res.json({
-  //  speech: jsonString,
- //   displayText: jsonString,
-  //  source: "webhook-echo-sample"
- // });
+  return res.json({
+   speech: jsonString,
+   displayText: jsonString,
+    source: "webhook-echo-sample"
+ });
  });
 
 restService.post("/audio", function(req, res) {
